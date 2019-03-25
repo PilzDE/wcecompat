@@ -31,25 +31,4 @@ BUILDING
 --------
 - Ensure your environment is setup for crosscompilation for the target Windows
   CE platform. Refer to the documentation in case you are not sure how to do so.
-- Depending on your version of Windows CE, you will have to set some environment
-  variables. These are
-   * OSVERSION: A string composed by "WCE" plus the version number ,eg. WCE500
-                Note that eg. Windows Mobile 5 is based on Windows CE 5.01, so
-                be sure about the proper setting. Otherwise runtime issues might
-                occur.
-   * TARGETCPU: The CPU architecture the SDK is designed for (eg. X86, ARMV4I,...)
-   * PLATFORM : For Windows CE previous to 5.00 this might be needed, but is
-                deprecated from this version on.
-- Call 'perl config.pl' to create the makefile configuration for your setup. In case
-  you do not have perl available, continue reading below to create your own 
-  configuration without using perl.
-- Call 'nmake'
-- After successful compilation you will have "wcecompat.lib" and "wcecompatex.lib"
-  in your lib directory. These libraries are generated statically and are supposed
-  to be linked into your project.
-
-
-MANUAL MAKEFILE CONFIGURATION
------------------------------
-If Perl is not available, following steps are needed to build wcecompat successfully:
-- foo ### TODO:
+- In order to build wcecompat for PMI5 or PMI6 please open the Visual Studio Project
