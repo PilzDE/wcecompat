@@ -607,6 +607,20 @@ struct tm* gmtime(const time_t* clock)
 	st_tm.tm_yday = dayOfYear(stUtc.wYear, stUtc.wMonth-1, stUtc.wDay);
 	st_tm.tm_isdst = 0;
 
+    //on windows CE we get the year in 4 digits and the month one digit larger (related to Julian dates?) -> adaption needed
+    //https://stackoverflow.com/questions/31339690/asn1-time-wrong-on-windows-ce-6-0
+    //question: for our devices it works by only adjusting the year, adjusting the month is not necessary. Why?
+    //answer: it is necessary to adapt also the month as otherwise the certificate validation fails if the certificate is less time valid than 1 month
+	if(st_tm.tm_year > 1900)
+	{
+		//printf("st_tm.tm_year is > 1900 : %d\n", st_tm.tm_year);
+		st_tm.tm_year = st_tm.tm_year - 1900;
+		st_tm.tm_mon = st_tm.tm_mon - 1;
+	}
+
+	//printf("wcecompat: gmtime(): st_tm: sec:%d, min:%d, hour:%d, mday:%d, mon:%d, year:%d, wday:%d, yday:%d\n", st_tm.tm_sec, st_tm.tm_min, st_tm.tm_hour, st_tm.tm_mday, st_tm.tm_mon, st_tm.tm_year, st_tm.tm_wday, st_tm.tm_yday);
+	//printf("-------------------------------------------------\n");
+
 	return &st_tm;
 
 }
@@ -801,7 +815,7 @@ size_t strftime(char *s, size_t maxs, const char *f, const struct tm *t)
 	*p = '\0';
 	return p - s;
 }
-
+/*
 time_t mktime(struct tm* pt)
 {
 	SYSTEMTIME ss, ls, s;
@@ -819,7 +833,7 @@ time_t mktime(struct tm* pt)
 	SystemTimeToFileTime( &s, &f );
 	return wce_FILETIME2time_t(&f) - (time_t)diff;
 }
-
+*/
 void _tzset ()
 {
 

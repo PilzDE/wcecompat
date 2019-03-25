@@ -19,33 +19,14 @@
  */
 
 
-#include <winsock2.h>
-#include "args.h"
-#include "redir.h"	// initStdHandles
-
-int main(int argc, char* argv[]);
+#include "stdafx.h"
 
 
-int
-WINAPI
-WinMain(
-	HINSTANCE /*hInstance*/,
-	HINSTANCE /*hPrevInstance*/,
-	LPWSTR lpCmdLine,
-	int /*nShowCmd*/)
+BOOL APIENTRY DllMain( HANDLE hModule, 
+                       DWORD  ul_reason_for_call, 
+                       LPVOID lpReserved
+					 )
 {
-	int		result;
-	int		argc;
-	char**	argv;
-
-	// convert program name and lpCmdLine into argc/argv, and handle I/O redirection
-	argc = processCmdLine(lpCmdLine, &argv);
-
-#if _WIN32_WCE < 0x500 || !defined(COREDLL_CORESIOA)
-	initStdHandles();	// get environment variables from ChildData
-#endif
-
-	result = main(argc, (char**)argv);
-
-	return result;
+    return TRUE;
 }
+

@@ -19,6 +19,28 @@
  */
 
 
-#include <errno.h>
+#ifndef __wcecompat__STDLIB_H__
+#define __wcecompat__STDLIB_H__
 
-__declspec(dllexport) int errno;
+#include "stddef.h"
+#include "malloc.h"
+#include "memory.h"
+#include "float.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#ifdef _EXPORTING
+   #define FUNC_DECLSPEC    __declspec(dllexport)
+#else
+   #define FUNC_DECLSPEC    __declspec(dllimport)
+#endif
+
+FUNC_DECLSPEC char * __cdecl getenv(const char *name);
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __wcecompat__STDLIB_H__ */

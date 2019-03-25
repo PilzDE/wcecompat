@@ -4,29 +4,25 @@
 	Version="9,00"
 	Name="wcecompat"
 	ProjectGUID="{79BDFEBE-DE7A-4FAB-A4F3-3102D5EEC9CA}"
-	RootNamespace="wcecompat"
 	Keyword="Win32Proj"
 	TargetFrameworkVersion="196613"
 	>
 	<Platforms>
 		<Platform
-			Name="Windows Mobile 5.0 Pocket PC SDK (ARMV4I)"
+			Name="PMI 5 - SDK (ARMV4I)"
 		/>
 		<Platform
-			Name="Windows Mobile 5.0 Smartphone SDK (ARMV4I)"
-		/>
-		<Platform
-			Name="Windows Mobile 6 Professional SDK (ARMV4I)"
+			Name="PMI 6 - SDK (x86)"
 		/>
 	</Platforms>
 	<ToolFiles>
 	</ToolFiles>
 	<Configurations>
 		<Configuration
-			Name="Debug|Windows Mobile 5.0 Pocket PC SDK (ARMV4I)"
-			OutputDirectory="$(PlatformName)\$(ConfigurationName)"
-			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
-			ConfigurationType="4"
+			Name="Debug|PMI 5 - SDK (ARMV4I)"
+			OutputDirectory="PMI5\$(ConfigurationName)"
+			IntermediateDirectory="PMI5\$(ConfigurationName)"
+			ConfigurationType="2"
 			CharacterSet="1"
 			>
 			<Tool
@@ -48,7 +44,8 @@
 				Name="VCCLCompilerTool"
 				ExecutionBucket="7"
 				Optimization="0"
-				PreprocessorDefinitions="_DEBUG;_WIN32_WCE=$(CEVER);UNDER_CE;$(PLATFORMDEFINES);WINCE;DEBUG;_LIB;$(ARCHFAM);$(_ARCHFAM_);_UNICODE;UNICODE"
+				AdditionalIncludeDirectories="E:\src\OPCUASource\5_57_0\Windows\Source\Core\OpenSSL\wcecompat\include;E:\src\OPCUASource\5_57_0\Windows\Source\Core\OpenSSL\wcecompat\include\sys;&quot;C:\Program Files (x86)\Windows CE Tools\wce600\PMI 5 - SDK\include&quot;;&quot;C:\Program Files (x86)\Windows CE Tools\wce600\PMI 5 - SDK\include\Armv4i&quot;;&quot;c:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\ce\atlmfc\include&quot;"
+				PreprocessorDefinitions="_DEBUG;_WIN32_WCE=$(CEVER);UNDER_CE;$(PLATFORMDEFINES);WINCE;DEBUG;_WINDOWS;_USRDLL;WCECOMPAT_EXPORTS;$(ARCHFAM);$(_ARCHFAM_);_UNICODE;UNICODE;_EXPORTING"
 				MinimalRebuild="true"
 				RuntimeLibrary="1"
 				UsePrecompiledHeader="0"
@@ -68,9 +65,19 @@
 				Name="VCPreLinkEventTool"
 			/>
 			<Tool
-				Name="VCLibrarianTool"
-				AdditionalOptions=" /subsystem:windowsce,5.01"
-				OutputFile="$(OutDir)/wcecompat.lib"
+				Name="VCLinkerTool"
+				AdditionalOptions=" /subsystem:windowsce,6.00"
+				OutputFile="$(OutDir)/wcecompat.dll"
+				LinkIncremental="2"
+				DelayLoadDLLs="$(NOINHERIT)"
+				GenerateDebugInformation="true"
+				ProgramDatabaseFile="$(OutDir)/wcecompat.pdb"
+				SubSystem="0"
+				StackReserveSize="65536"
+				StackCommitSize="4096"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
+				ImportLibrary="$(OutDir)/wcecompat.lib"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -100,10 +107,10 @@
 			/>
 		</Configuration>
 		<Configuration
-			Name="Debug|Windows Mobile 5.0 Smartphone SDK (ARMV4I)"
-			OutputDirectory="$(PlatformName)\$(ConfigurationName)"
-			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
-			ConfigurationType="4"
+			Name="Debug|PMI 6 - SDK (x86)"
+			OutputDirectory="PMI6\$(ConfigurationName)"
+			IntermediateDirectory="PMI6\$(ConfigurationName)"
+			ConfigurationType="2"
 			CharacterSet="1"
 			>
 			<Tool
@@ -125,7 +132,8 @@
 				Name="VCCLCompilerTool"
 				ExecutionBucket="7"
 				Optimization="0"
-				PreprocessorDefinitions="_DEBUG;_WIN32_WCE=$(CEVER);UNDER_CE;$(PLATFORMDEFINES);WINCE;DEBUG;_LIB;$(ARCHFAM);$(_ARCHFAM_);_UNICODE;UNICODE"
+				AdditionalIncludeDirectories="E:\src\OPCUASource\5_57_0\Windows\Source\Core\OpenSSL\wcecompat\include;E:\src\OPCUASource\5_57_0\Windows\Source\Core\OpenSSL\wcecompat\include\sys;&quot;C:\Program Files (x86)\Windows CE Tools\SDKs\PMI 6 - SDK\include&quot;;&quot;C:\Program Files (x86)\Windows CE Tools\SDKs\PMI 6 - SDK\include\x86&quot;;&quot;c:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\ce\atlmfc\include&quot;"
+				PreprocessorDefinitions="_DEBUG;_WIN32_WCE=$(CEVER);UNDER_CE;$(PLATFORMDEFINES);WINCE;DEBUG;_WINDOWS;_USRDLL;WCECOMPAT_EXPORTS;$(ARCHFAM);$(_ARCHFAM_);_UNICODE;UNICODE;_EXPORTING"
 				MinimalRebuild="true"
 				RuntimeLibrary="1"
 				UsePrecompiledHeader="0"
@@ -145,9 +153,19 @@
 				Name="VCPreLinkEventTool"
 			/>
 			<Tool
-				Name="VCLibrarianTool"
-				AdditionalOptions=" /subsystem:windowsce,5.01"
-				OutputFile="$(OutDir)/wcecompat.lib"
+				Name="VCLinkerTool"
+				AdditionalOptions=" /subsystem:windowsce,7.00"
+				OutputFile="$(OutDir)/wcecompat.dll"
+				LinkIncremental="2"
+				DelayLoadDLLs="$(NOINHERIT)"
+				GenerateDebugInformation="true"
+				ProgramDatabaseFile="$(OutDir)/wcecompat.pdb"
+				SubSystem="0"
+				StackReserveSize="65536"
+				StackCommitSize="4096"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
+				ImportLibrary="$(OutDir)/wcecompat.lib"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -177,87 +195,10 @@
 			/>
 		</Configuration>
 		<Configuration
-			Name="Debug|Windows Mobile 6 Professional SDK (ARMV4I)"
-			OutputDirectory="$(PlatformName)\$(ConfigurationName)"
-			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
-			ConfigurationType="4"
-			CharacterSet="1"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-			/>
-			<Tool
-				Name="VCCLCompilerTool"
-				ExecutionBucket="7"
-				Optimization="0"
-				PreprocessorDefinitions="_DEBUG;_WIN32_WCE=$(CEVER);UNDER_CE;$(PLATFORMDEFINES);WINCE;DEBUG;_LIB;$(ARCHFAM);$(_ARCHFAM_);_UNICODE;UNICODE"
-				MinimalRebuild="true"
-				RuntimeLibrary="1"
-				UsePrecompiledHeader="0"
-				WarningLevel="3"
-				DebugInformationFormat="3"
-			/>
-			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="_DEBUG;_WIN32_WCE=$(CEVER);UNDER_CE;$(PLATFORMDEFINES)"
-				Culture="1033"
-				AdditionalIncludeDirectories="$(IntDir)"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
-			<Tool
-				Name="VCLibrarianTool"
-				AdditionalOptions=" /subsystem:windowsce,5.02"
-				OutputFile="$(OutDir)/wcecompat.lib"
-			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCXDCMakeTool"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-			/>
-			<Tool
-				Name="VCFxCopTool"
-			/>
-			<Tool
-				Name="VCCodeSignTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-			/>
-			<DeploymentTool
-				ForceDirty="-1"
-				RemoteDirectory=""
-				RegisterOutput="0"
-				AdditionalFiles=""
-			/>
-			<DebuggerTool
-			/>
-		</Configuration>
-		<Configuration
-			Name="Release|Windows Mobile 5.0 Pocket PC SDK (ARMV4I)"
-			OutputDirectory="$(PlatformName)\$(ConfigurationName)"
-			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
-			ConfigurationType="4"
+			Name="Release|PMI 5 - SDK (ARMV4I)"
+			OutputDirectory="PMI5\$(ConfigurationName)"
+			IntermediateDirectory="PMI5\$(ConfigurationName)"
+			ConfigurationType="2"
 			CharacterSet="1"
 			>
 			<Tool
@@ -280,7 +221,8 @@
 				ExecutionBucket="7"
 				Optimization="2"
 				FavorSizeOrSpeed="2"
-				PreprocessorDefinitions="NDEBUG;_WIN32_WCE=$(CEVER);UNDER_CE;$(PLATFORMDEFINES);WINCE;_LIB;$(ARCHFAM);$(_ARCHFAM_);_UNICODE;UNICODE"
+				AdditionalIncludeDirectories="E:\src\OPCUASource\5_57_0\Windows\Source\Core\OpenSSL\wcecompat\include;E:\src\OPCUASource\5_57_0\Windows\Source\Core\OpenSSL\wcecompat\include\sys;&quot;C:\Program Files (x86)\Windows CE Tools\wce600\PMI 5 - SDK\include&quot;;&quot;C:\Program Files (x86)\Windows CE Tools\wce600\PMI 5 - SDK\include\Armv4i&quot;;&quot;c:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\ce\atlmfc\include&quot;"
+				PreprocessorDefinitions="NDEBUG;_WIN32_WCE=$(CEVER);UNDER_CE;$(PLATFORMDEFINES);WINCE;_WINDOWS;_USRDLL;WCECOMPAT_EXPORTS;$(ARCHFAM);$(_ARCHFAM_);_UNICODE;UNICODE;_EXPORTING"
 				RuntimeLibrary="0"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
@@ -299,9 +241,22 @@
 				Name="VCPreLinkEventTool"
 			/>
 			<Tool
-				Name="VCLibrarianTool"
-				AdditionalOptions=" /subsystem:windowsce,5.01"
-				OutputFile="$(OutDir)/wcecompat.lib"
+				Name="VCLinkerTool"
+				AdditionalOptions=" /subsystem:windowsce,6.00"
+				AdditionalDependencies=" coredll.lib corelibc.lib"
+				OutputFile="$(OutDir)/wcecompat.dll"
+				LinkIncremental="1"
+				DelayLoadDLLs="$(NOINHERIT)"
+				GenerateDebugInformation="true"
+				ProgramDatabaseFile="$(OutDir)/wcecompat.pdb"
+				SubSystem="0"
+				StackReserveSize="65536"
+				StackCommitSize="4096"
+				OptimizeReferences="2"
+				EnableCOMDATFolding="2"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
+				ImportLibrary="$(OutDir)/wcecompat.lib"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -331,10 +286,10 @@
 			/>
 		</Configuration>
 		<Configuration
-			Name="Release|Windows Mobile 5.0 Smartphone SDK (ARMV4I)"
-			OutputDirectory="$(PlatformName)\$(ConfigurationName)"
-			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
-			ConfigurationType="4"
+			Name="Release|PMI 6 - SDK (x86)"
+			OutputDirectory="PMI6\$(ConfigurationName)"
+			IntermediateDirectory="PMI6\$(ConfigurationName)"
+			ConfigurationType="2"
 			CharacterSet="1"
 			>
 			<Tool
@@ -357,7 +312,8 @@
 				ExecutionBucket="7"
 				Optimization="2"
 				FavorSizeOrSpeed="2"
-				PreprocessorDefinitions="NDEBUG;_WIN32_WCE=$(CEVER);UNDER_CE;$(PLATFORMDEFINES);WINCE;_LIB;$(ARCHFAM);$(_ARCHFAM_);_UNICODE;UNICODE"
+				AdditionalIncludeDirectories="E:\src\OPCUASource\5_57_0\Windows\Source\Core\OpenSSL\wcecompat\include;E:\src\OPCUASource\5_57_0\Windows\Source\Core\OpenSSL\wcecompat\include\sys;&quot;C:\Program Files (x86)\Windows CE Tools\SDKs\PMI 6 - SDK\include&quot;;&quot;C:\Program Files (x86)\Windows CE Tools\SDKs\PMI 6 - SDK\include\x86&quot;;&quot;c:\Program Files (x86)\Microsoft Visual Studio 9.0\VC\ce\atlmfc\include&quot;"
+				PreprocessorDefinitions="NDEBUG;_WIN32_WCE=$(CEVER);UNDER_CE;$(PLATFORMDEFINES);WINCE;_WINDOWS;_USRDLL;WCECOMPAT_EXPORTS;$(ARCHFAM);$(_ARCHFAM_);_UNICODE;UNICODE;_EXPORTING"
 				RuntimeLibrary="0"
 				UsePrecompiledHeader="0"
 				WarningLevel="3"
@@ -376,86 +332,21 @@
 				Name="VCPreLinkEventTool"
 			/>
 			<Tool
-				Name="VCLibrarianTool"
-				AdditionalOptions=" /subsystem:windowsce,5.01"
-				OutputFile="$(OutDir)/wcecompat.lib"
-			/>
-			<Tool
-				Name="VCALinkTool"
-			/>
-			<Tool
-				Name="VCXDCMakeTool"
-			/>
-			<Tool
-				Name="VCBscMakeTool"
-			/>
-			<Tool
-				Name="VCFxCopTool"
-			/>
-			<Tool
-				Name="VCCodeSignTool"
-			/>
-			<Tool
-				Name="VCPostBuildEventTool"
-			/>
-			<DeploymentTool
-				ForceDirty="-1"
-				RemoteDirectory=""
-				RegisterOutput="0"
-				AdditionalFiles=""
-			/>
-			<DebuggerTool
-			/>
-		</Configuration>
-		<Configuration
-			Name="Release|Windows Mobile 6 Professional SDK (ARMV4I)"
-			OutputDirectory="$(PlatformName)\$(ConfigurationName)"
-			IntermediateDirectory="$(PlatformName)\$(ConfigurationName)"
-			ConfigurationType="4"
-			CharacterSet="1"
-			>
-			<Tool
-				Name="VCPreBuildEventTool"
-			/>
-			<Tool
-				Name="VCCustomBuildTool"
-			/>
-			<Tool
-				Name="VCXMLDataGeneratorTool"
-			/>
-			<Tool
-				Name="VCWebServiceProxyGeneratorTool"
-			/>
-			<Tool
-				Name="VCMIDLTool"
-			/>
-			<Tool
-				Name="VCCLCompilerTool"
-				ExecutionBucket="7"
-				Optimization="2"
-				FavorSizeOrSpeed="2"
-				PreprocessorDefinitions="NDEBUG;_WIN32_WCE=$(CEVER);UNDER_CE;$(PLATFORMDEFINES);WINCE;_LIB;$(ARCHFAM);$(_ARCHFAM_);_UNICODE;UNICODE"
-				RuntimeLibrary="0"
-				UsePrecompiledHeader="0"
-				WarningLevel="3"
-				DebugInformationFormat="3"
-			/>
-			<Tool
-				Name="VCManagedResourceCompilerTool"
-			/>
-			<Tool
-				Name="VCResourceCompilerTool"
-				PreprocessorDefinitions="NDEBUG;_WIN32_WCE=$(CEVER);UNDER_CE;$(PLATFORMDEFINES)"
-				Culture="1033"
-				AdditionalIncludeDirectories="$(IntDir)"
-			/>
-			<Tool
-				Name="VCPreLinkEventTool"
-			/>
-			<Tool
-				Name="VCLibrarianTool"
-				AdditionalOptions=" /subsystem:windowsce,5.02"
-				OutputFile="$(OutDir)/wcecompat.lib"
+				Name="VCLinkerTool"
+				AdditionalOptions=" /subsystem:windowsce,7.00"
+				OutputFile="$(OutDir)/wcecompat.dll"
+				LinkIncremental="1"
+				DelayLoadDLLs="$(NOINHERIT)"
+				GenerateDebugInformation="true"
+				ProgramDatabaseFile="$(OutDir)/wcecompat.pdb"
+				SubSystem="0"
+				StackReserveSize="65536"
+				StackCommitSize="4096"
+				OptimizeReferences="2"
+				EnableCOMDATFolding="2"
+				RandomizedBaseAddress="1"
+				DataExecutionPrevention="0"
+				ImportLibrary="$(OutDir)/wcecompat.lib"
 			/>
 			<Tool
 				Name="VCALinkTool"
@@ -494,26 +385,6 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\src\args.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\assert.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\ChildData.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\conio.c"
-				>
-			</File>
-			<File
-				RelativePath=".\src\direct.c"
-				>
-			</File>
-			<File
 				RelativePath=".\src\env.cpp"
 				>
 			</File>
@@ -522,32 +393,40 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\io.c"
+				RelativePath=".\src\stdafx.cpp"
 				>
-			</File>
-			<File
-				RelativePath=".\src\pipe.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\process.c"
-				>
-			</File>
-			<File
-				RelativePath=".\src\redir.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\signal.c"
-				>
-			</File>
-			<File
-				RelativePath=".\src\stat.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\stdio_extras.cpp"
-				>
+				<FileConfiguration
+					Name="Debug|PMI 5 - SDK (ARMV4I)"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="1"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|PMI 6 - SDK (x86)"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="1"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|PMI 5 - SDK (ARMV4I)"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="1"
+					/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|PMI 6 - SDK (x86)"
+					>
+					<Tool
+						Name="VCCLCompilerTool"
+						UsePrecompiledHeader="1"
+					/>
+				</FileConfiguration>
 			</File>
 			<File
 				RelativePath=".\src\stdlib_extras.cpp"
@@ -562,31 +441,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\src\timeb.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\ts_string.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\utime.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\wce211_ctype.c"
-				>
-			</File>
-			<File
-				RelativePath=".\src\wce211_string.c"
-				>
-			</File>
-			<File
 				RelativePath=".\src\winmain.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\src\winsock_extras.cpp"
 				>
 			</File>
 		</Filter>
@@ -596,107 +451,7 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath=".\src\args.h"
-				>
-			</File>
-			<File
-				RelativePath=".\include\assert.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\ChildData.h"
-				>
-			</File>
-			<File
-				RelativePath=".\include\conio.h"
-				>
-			</File>
-			<File
-				RelativePath=".\include\ctype.h"
-				>
-			</File>
-			<File
-				RelativePath=".\include\direct.h"
-				>
-			</File>
-			<File
-				RelativePath=".\include\errno.h"
-				>
-			</File>
-			<File
-				RelativePath=".\include\fcntl.h"
-				>
-			</File>
-			<File
-				RelativePath=".\include\float.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\internal.h"
-				>
-			</File>
-			<File
-				RelativePath=".\include\io.h"
-				>
-			</File>
-			<File
-				RelativePath=".\include\limits.h"
-				>
-			</File>
-			<File
-				RelativePath=".\include\sys\locking.h"
-				>
-			</File>
-			<File
-				RelativePath=".\include\malloc.h"
-				>
-			</File>
-			<File
-				RelativePath=".\include\math.h"
-				>
-			</File>
-			<File
-				RelativePath=".\include\memory.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\pipe.h"
-				>
-			</File>
-			<File
-				RelativePath=".\include\process.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\redir.h"
-				>
-			</File>
-			<File
-				RelativePath=".\include\setjmp.h"
-				>
-			</File>
-			<File
-				RelativePath=".\include\signal.h"
-				>
-			</File>
-			<File
-				RelativePath=".\include\sys\stat.h"
-				>
-			</File>
-			<File
-				RelativePath=".\include\stdarg.h"
-				>
-			</File>
-			<File
-				RelativePath=".\include\stddef.h"
-				>
-			</File>
-			<File
-				RelativePath=".\include\stdio.h"
-				>
-			</File>
-			<File
-				RelativePath=".\include\stdlib.h"
+				RelativePath=".\include\stdafx.h"
 				>
 			</File>
 			<File
@@ -704,35 +459,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\include\strings.h"
-				>
-			</File>
-			<File
-				RelativePath=".\include\sys\time.h"
-				>
-			</File>
-			<File
 				RelativePath=".\include\time.h"
-				>
-			</File>
-			<File
-				RelativePath=".\include\sys\timeb.h"
-				>
-			</File>
-			<File
-				RelativePath=".\src\ts_string.h"
-				>
-			</File>
-			<File
-				RelativePath=".\include\sys\types.h"
-				>
-			</File>
-			<File
-				RelativePath=".\include\sys\utime.h"
-				>
-			</File>
-			<File
-				RelativePath=".\include\winsock_extras.h"
 				>
 			</File>
 		</Filter>
@@ -743,7 +470,7 @@
 			>
 		</Filter>
 		<File
-			RelativePath=".\makefile"
+			RelativePath=".\ReadMe.txt"
 			>
 		</File>
 	</Files>

@@ -29,7 +29,15 @@
 extern "C" {
 #endif
 
-char *  __cdecl strerror(int errnum);
+#ifndef FUNC_DECLSPEC
+#ifdef _EXPORTING
+   #define FUNC_DECLSPEC    __declspec(dllexport)
+#else
+   #define FUNC_DECLSPEC    __declspec(dllimport)
+#endif
+#endif
+
+FUNC_DECLSPEC char *  __cdecl strerror(int errnum);
 
 // Widechar string functions
 _CRTIMP wchar_t * __cdecl wcscat(wchar_t *, const wchar_t *);
@@ -94,7 +102,7 @@ _CRTIMP char *  __cdecl _strrev(char *);
 char *  __cdecl _strset(char *, int);
 _CRTIMP char *  __cdecl _strlwr(char *);
 _CRTIMP char *  __cdecl _strupr(char *);
-_CRTIMP char * __cdecl strdup(const char * _Src);
+FUNC_DECLSPEC _CRTIMP char * __cdecl strdup(const char * _Src);
 #ifndef strncasecmp
 #define strncasecmp _strnicmp
 #endif

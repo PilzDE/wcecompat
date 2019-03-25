@@ -22,7 +22,6 @@
 #ifndef __wcecompat__ERRNO_H__
 #define __wcecompat__ERRNO_H__
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif

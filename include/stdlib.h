@@ -31,6 +31,12 @@
 extern "C" {
 #endif
 
+#ifdef _EXPORTING
+   #define FUNC_DECLSPEC    __declspec(dllexport)
+#else
+   #define FUNC_DECLSPEC    __declspec(dllimport)
+#endif
+
 extern float ceilf(float);  /* inside default stdlib.h */
 extern float fabsf(float);
 extern float floorf(float);
@@ -41,9 +47,9 @@ extern float fmodf(float);
 
 extern int _fmode;          /* default file translation mode */
 
-void abort(void);
+FUNC_DECLSPEC void abort(void);
 
-char * __cdecl getenv(const char *name);
+FUNC_DECLSPEC char * __cdecl getenv(const char *name);
 int    __cdecl _putenv(const char *);
 int    __cdecl _wputenv(const wchar_t *);
 extern char** _environ;    /* pointer to environment table */

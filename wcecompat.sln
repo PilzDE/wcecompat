@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wcecompat", "wcecompat.vcproj", "{79BDFEBE-DE7A-4FAB-A4F3-3102D5EEC9CA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|PMI 5 - SDK (ARMV4I) = Debug|PMI 5 - SDK (ARMV4I)
+		Debug|PMI 6 - SDK (x86) = Debug|PMI 6 - SDK (x86)
+		Release|PMI 5 - SDK (ARMV4I) = Release|PMI 5 - SDK (ARMV4I)
+		Release|PMI 6 - SDK (x86) = Release|PMI 6 - SDK (x86)
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{79BDFEBE-DE7A-4FAB-A4F3-3102D5EEC9CA}.Debug|PMI 5 - SDK (ARMV4I).ActiveCfg = Debug|PMI 5 - SDK (ARMV4I)
+		{79BDFEBE-DE7A-4FAB-A4F3-3102D5EEC9CA}.Debug|PMI 5 - SDK (ARMV4I).Build.0 = Debug|PMI 5 - SDK (ARMV4I)
+		{79BDFEBE-DE7A-4FAB-A4F3-3102D5EEC9CA}.Debug|PMI 5 - SDK (ARMV4I).Deploy.0 = Debug|PMI 5 - SDK (ARMV4I)
+		{79BDFEBE-DE7A-4FAB-A4F3-3102D5EEC9CA}.Debug|PMI 6 - SDK (x86).ActiveCfg = Debug|PMI 6 - SDK (x86)
+		{79BDFEBE-DE7A-4FAB-A4F3-3102D5EEC9CA}.Debug|PMI 6 - SDK (x86).Build.0 = Debug|PMI 6 - SDK (x86)
+		{79BDFEBE-DE7A-4FAB-A4F3-3102D5EEC9CA}.Release|PMI 5 - SDK (ARMV4I).ActiveCfg = Release|PMI 5 - SDK (ARMV4I)
+		{79BDFEBE-DE7A-4FAB-A4F3-3102D5EEC9CA}.Release|PMI 5 - SDK (ARMV4I).Build.0 = Release|PMI 5 - SDK (ARMV4I)
+		{79BDFEBE-DE7A-4FAB-A4F3-3102D5EEC9CA}.Release|PMI 6 - SDK (x86).ActiveCfg = Release|PMI 6 - SDK (x86)
+		{79BDFEBE-DE7A-4FAB-A4F3-3102D5EEC9CA}.Release|PMI 6 - SDK (x86).Build.0 = Release|PMI 6 - SDK (x86)
+		{79BDFEBE-DE7A-4FAB-A4F3-3102D5EEC9CA}.Release|PMI 6 - SDK (x86).Deploy.0 = Release|PMI 6 - SDK (x86)
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

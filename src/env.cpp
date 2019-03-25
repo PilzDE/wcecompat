@@ -22,7 +22,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <errno.h>
-#include "ts_string.h"
+//#include "ts_string.h"
+#include <string.h>
 #include "redir.h"	// initStdHandles
 
 
@@ -55,7 +56,7 @@ char* getenv(const char* name)
 	return NULL;
 }
 
-
+/*
 int _putenv(const char* str)
 {
 	_environ = (char**)realloc(_environ, (num_env_vars+1)*sizeof(char*));
@@ -84,3 +85,4 @@ int _wputenv(const wchar_t* str)
 	_wenviron[num_env_vars-1] = ts_strdup(str);
 	return 0;
 }
+*/

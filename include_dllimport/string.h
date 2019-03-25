@@ -19,6 +19,38 @@
  */
 
 
-#include <errno.h>
+#ifndef __wcecompat__STRING_H__
+#define __wcecompat__STRING_H__
 
-__declspec(dllexport) int errno;
+#include "stddef.h"
+#include "memory.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+
+#ifndef FUNC_DECLSPEC
+#ifdef _EXPORTING
+   #define FUNC_DECLSPEC    __declspec(dllexport)
+#else
+   #define FUNC_DECLSPEC    __declspec(dllimport)
+#endif
+#endif
+
+FUNC_DECLSPEC char *  __cdecl strerror(int errnum);
+
+
+FUNC_DECLSPEC char * __cdecl strdup(const char * _Src);
+#ifndef strncasecmp
+#define strncasecmp _strnicmp
+#endif
+#ifndef strcasecmp
+#define strcasecmp _stricmp
+#endif
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif /* __wcecompat__STRING_H__ */
